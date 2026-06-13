@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*.ipynb_checkpoints
+
+# Data — never commit raw or processed data
+data/raw/*
+data/processed/*
+*.csv
+*.xlsx
+*.parquet
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Environment
+.env
+.env.local
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code internals — not for public repos
+.claude/
+CLAUDE.md
+agent-os/
+
+# Reports — figures ARE committed (embedded in README)
+# Nothing to ignore here
