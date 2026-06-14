@@ -81,7 +81,7 @@ An end-to-end machine learning project predicting NSW residential property sale 
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/nsw-property-price-prediction
+git clone https://github.com/nancy-vn-le/nsw-property-price-prediction
 cd nsw-property-price-prediction
 
 # 2. Create and activate a virtual environment
@@ -117,7 +117,7 @@ jupyter notebook
 
 ### Feature Engineering
 - Log-transform of both target (`purchase_price`) and land area — both are heavily right-skewed
-- **Target encoding** for suburb: each suburb replaced by its mean log-price computed on the training set. Handles ~1,100 unique NSW suburbs without creating a sparse one-hot matrix. Clip to ±3σ to prevent extreme suburbs from destabilising linear models.
+- **Target encoding** for suburb: each suburb replaced by its mean log-price computed on the training set. Handles ~4,000 unique NSW suburbs without creating a sparse one-hot matrix. Encoding is clipped to ±3σ to prevent extreme suburbs from destabilising linear models.
 - `sklearn.Pipeline` + `ColumnTransformer` ensures all transformations are fit on train data only — no leakage
 
 ### Models
@@ -157,8 +157,7 @@ Five models compared using 5-fold cross-validation on training set, final evalua
 
 Data science graduate with Python, pandas, scikit-learn, and SQL skills. This project demonstrates end-to-end ML on a real 1.88M-row Australian government dataset.
 
-- [LinkedIn](https://linkedin.com/in/your-profile)
-- [GitHub](https://github.com/your-username)
+- [GitHub](https://github.com/nancy-vn-le)
 - [Email](mailto:v.ngan.le@gmail.com)
 
 ---
