@@ -27,6 +27,10 @@ data/processed/*
 *.parquet
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+# App model artifacts in models/ ARE committed
+!models/*.parquet
+!models/*.json
+!models/*.pkl
 
 # Environment
 .env

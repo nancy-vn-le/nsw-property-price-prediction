@@ -401,7 +401,7 @@ st.divider()
 st.caption(
     "Data: NSW Government open data, CC BY 4.0.  "
     "Predictions are indicative only — not financial advice.  "
-    "Model: XGBoost trained on 1.5M properties (R² = 0.57, RMSE ~$1.05M for 200-round model).  "
+    "Model: XGBoost (200 rounds) trained on 1.5M properties (R² = 0.36, RMSE ~$1.05M).  "
     "Source: [github.com/nancy-vn-le/nsw-property-price-prediction]"
     "(https://github.com/nancy-vn-le/nsw-property-price-prediction)"
 )
