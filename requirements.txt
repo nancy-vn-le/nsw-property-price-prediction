@@ -21,3 +21,7 @@ ipykernel==6.29.4
 
 # Utilities
 pyarrow==24.0.0  # parquet support for pandas
+
+# Web app
+streamlit>=1.35.0
+plotly>=5.20.0
