@@ -39,7 +39,7 @@ def make_pipeline(
     """
     numeric_transformer = StandardScaler()
 
-    # drop='first' reduces one dummy variable per feature — avoids the dummy
+    # drop='first' reduces one dummy variable per feature - avoids the dummy
     # variable trap that inflates OLS standard errors.
     categorical_transformer = OneHotEncoder(
         drop="first", handle_unknown="ignore", sparse_output=False

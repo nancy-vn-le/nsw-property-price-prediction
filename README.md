@@ -4,7 +4,7 @@
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-An end-to-end machine learning project predicting NSW residential property sale prices using 1.88 million publicly available government transactions (2010–2026). Built as a portfolio project demonstrating the full data science workflow: exploratory analysis → feature engineering → multi-model comparison → SHAP interpretation.
+An end-to-end machine learning project predicting NSW residential property sale prices using 1.88 million publicly available government transactions (2010-2026). Built as a portfolio project demonstrating the full data science workflow: exploratory analysis → feature engineering → multi-model comparison → SHAP interpretation.
 
 ---
 
@@ -27,7 +27,7 @@ The app has three tabs: **Price Estimator** (suburb + land area → predicted pr
 ## Key Findings
 
 - **Random Forest achieved the best R² (0.59)** with RMSE of $843k, outperforming the OLS baseline by 25% on RMSE.
-- **Location (suburb) is the dominant price driver** — SHAP analysis and RF feature importance (71.9%) confirm suburb mean price accounts for the majority of prediction variance.
+- **Location (suburb) is the dominant price driver** - SHAP analysis and RF feature importance (71.9%) confirm suburb mean price accounts for the majority of prediction variance.
 - **Land area has a log-linear relationship** with sale price; each doubling of lot size corresponds to roughly a 9.8% price increase (Ridge coefficient = 0.098 on log-transformed area).
 - **47.6% of XGBoost predictions fall within 20% of the actual sale price**, consistent with entry-level automated valuation model (AVM) accuracy using only four features.
 
@@ -92,10 +92,10 @@ The app has three tabs: **Price Estimator** (suburb + land area → predicted pr
 
 ## Dataset
 
-**Source:** NSW Valuer General / NSW Land Registry Services — Bulk Property Sales Information  
-**URL:** [data.nsw.gov.au](https://data.nsw.gov.au/) — search *"Property Sales Information"*  
+**Source:** NSW Valuer General / NSW Land Registry Services - Bulk Property Sales Information  
+**URL:** [data.nsw.gov.au](https://data.nsw.gov.au/) - search *"Property Sales Information"*  
 **Licence:** Creative Commons Attribution 4.0 (CC BY 4.0)  
-**Coverage:** All NSW residential property sales 2010–2026 (1.88M rows after cleaning)
+**Coverage:** All NSW residential property sales 2010-2026 (1.88M rows after cleaning)
 
 ### Download Instructions
 
@@ -121,7 +121,7 @@ source venv/bin/activate      # macOS/Linux
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# macOS only — required for XGBoost
+# macOS only - required for XGBoost
 brew install libomp
 
 # 4. Download the dataset (see instructions above)
@@ -132,7 +132,7 @@ jupyter notebook
 # Open notebooks/ and run 01 → 02 → 03 → 04 in sequence
 ```
 
-**Expected runtime:** ~10–20 minutes end-to-end (the Random Forest cross-validation step dominates).
+**Expected runtime:** ~10-20 minutes end-to-end (the Random Forest cross-validation step dominates).
 
 ---
 
@@ -140,14 +140,14 @@ jupyter notebook
 
 ### Data Cleaning
 - Residential sales only (`nature_of_property = R`)
-- Price filter: $50k–$30M (removes data-entry errors and non-arm's-length transfers)
+- Price filter: $50k-$30M (removes data-entry errors and non-arm's-length transfers)
 - Date filter: 2010 onwards (15 years of market data covering multiple cycles)
 - Area unified to m² (hectare rows × 10,000), capped at 500,000 m²
 
 ### Feature Engineering
-- Log-transform of both target (`purchase_price`) and land area — both are heavily right-skewed
+- Log-transform of both target (`purchase_price`) and land area - both are heavily right-skewed
 - **Target encoding** for suburb: each suburb replaced by its mean log-price computed on the training set. Handles ~4,000 unique NSW suburbs without creating a sparse one-hot matrix. Encoding is clipped to ±3σ to prevent extreme suburbs from destabilising linear models.
-- `sklearn.Pipeline` + `ColumnTransformer` ensures all transformations are fit on train data only — no leakage
+- `sklearn.Pipeline` + `ColumnTransformer` ensures all transformations are fit on train data only - no leakage
 
 ### Models
 Five models compared using 5-fold cross-validation on training set, final evaluation on a held-out 20% test set:
@@ -163,7 +163,7 @@ Five models compared using 5-fold cross-validation on training set, final evalua
 ### Interpretation
 - Standardised coefficients (Ridge/Lasso) for direct marginal-effect reading
 - Impurity-based feature importances (Random Forest, XGBoost)
-- SHAP `TreeExplainer` — model-agnostic, directional attribution on 2,000 test samples
+- SHAP `TreeExplainer` - model-agnostic, directional attribution on 2,000 test samples
 
 ---
 

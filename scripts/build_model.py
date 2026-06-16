@@ -150,7 +150,7 @@ def build_suburb_stats():
 
 if __name__ == "__main__":
     print("=" * 52)
-    print("  NSW Property Price — Building App Artifacts")
+    print("  NSW Property Price - Building App Artifacts")
     print("=" * 52)
 
     check_inputs()

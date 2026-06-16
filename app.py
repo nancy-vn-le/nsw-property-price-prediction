@@ -87,7 +87,7 @@ def predict_price(suburb: str, area_m2: float, year: int, quarter: int) -> float
 
 st.title("NSW Property Price Estimator")
 st.caption(
-    "Based on 1.88 million NSW residential sales, 2010–2026.  "
+    "Based on 1.88 million NSW residential sales, 2010-2026.  "
     "Source: NSW Valuer General / Land Registry Services (CC BY 4.0)."
 )
 
@@ -96,7 +96,7 @@ tab_est, tab_trends, tab_explore = st.tabs(
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TAB 1 — Price Estimator
+# TAB 1 - Price Estimator
 # ─────────────────────────────────────────────────────────────────────────────
 
 with tab_est:
@@ -124,7 +124,7 @@ with tab_est:
             "Quarter",
             options=[1, 2, 3, 4],
             index=1,
-            format_func=lambda q: f"Q{q}  ({['Jan–Mar','Apr–Jun','Jul–Sep','Oct–Dec'][q-1]})",
+            format_func=lambda q: f"Q{q}  ({['Jan-Mar','Apr-Jun','Jul-Sep','Oct-Dec'][q-1]})",
         )
 
         st.divider()
@@ -138,7 +138,7 @@ with tab_est:
         low   = price * 0.78
         high  = price * 1.28
 
-        st.subheader(f"Estimated sale price — {suburb.title()}")
+        st.subheader(f"Estimated sale price - {suburb.title()}")
 
         col_a, col_b, col_c = st.columns(3)
         col_a.metric("Estimate",    f"${price / 1e6:.2f}M")
@@ -164,7 +164,7 @@ with tab_est:
                 mode="lines",
                 name="NSW median",
                 line=dict(color="#cccccc", dash="dot", width=1.5),
-                hovertemplate="NSW median — %{x}: $%{y:.2f}M<extra></extra>",
+                hovertemplate="NSW median - %{x}: $%{y:.2f}M<extra></extra>",
             ))
             fig.add_trace(go.Scatter(
                 x=sub_hist["year"],
@@ -175,7 +175,7 @@ with tab_est:
                 marker=dict(size=6),
                 customdata=sub_hist["n_sales"],
                 hovertemplate=(
-                    f"{suburb.title()} — %{{x}}: $%{{y:.2f}}M<br>"
+                    f"{suburb.title()} - %{{x}}: $%{{y:.2f}}M<br>"
                     "Sales: %{customdata:,}<extra></extra>"
                 ),
             ))
@@ -190,7 +190,7 @@ with tab_est:
             ))
 
             fig.update_layout(
-                title=f"{suburb.title()} — median sale price vs NSW",
+                title=f"{suburb.title()} - median sale price vs NSW",
                 xaxis_title="Year",
                 yaxis_title="Median price (AUD millions)",
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
@@ -204,7 +204,7 @@ with tab_est:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TAB 2 — Suburb Trends
+# TAB 2 - Suburb Trends
 # ─────────────────────────────────────────────────────────────────────────────
 
 with tab_trends:
@@ -297,13 +297,13 @@ with tab_trends:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# TAB 3 — Suburb Explorer
+# TAB 3 - Suburb Explorer
 # ─────────────────────────────────────────────────────────────────────────────
 
 with tab_explore:
     st.subheader("Suburb Explorer")
     st.caption(
-        "NSW residential property — median sale price across all years (2010–2026)."
+        "NSW residential property - median sale price across all years (2010-2026)."
     )
 
     c1, c2, c3 = st.columns(3)
@@ -400,7 +400,7 @@ with tab_explore:
 st.divider()
 st.caption(
     "Data: NSW Government open data, CC BY 4.0.  "
-    "Predictions are indicative only — not financial advice.  "
+    "Predictions are indicative only - not financial advice.  "
     "Model: XGBoost (200 rounds) trained on 1.5M properties (R² = 0.36, RMSE ~$1.05M).  "
     "Source: [github.com/nancy-vn-le/nsw-property-price-prediction]"
     "(https://github.com/nancy-vn-le/nsw-property-price-prediction)"

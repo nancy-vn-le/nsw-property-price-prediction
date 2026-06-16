@@ -39,7 +39,7 @@ def load_raw(filename: str) -> pd.DataFrame:
     Load a CSV from data/raw/, rename columns to snake_case, and return.
 
     The raw file is never modified. Column renaming is the first and only
-    transformation applied here — all other cleaning happens downstream.
+    transformation applied here - all other cleaning happens downstream.
 
     Parameters
     ----------

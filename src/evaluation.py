@@ -85,7 +85,7 @@ def plot_comparison(results: dict[str, dict], save: bool = True) -> None:
     bars = ax.barh(models, rmses, color="steelblue", edgecolor="white")
     ax.bar_label(bars, labels=[f"${v:,.0f}" for v in rmses], padding=5)
     ax.set_xlabel("RMSE (AUD)")
-    ax.set_title("Model Comparison — Test Set RMSE")
+    ax.set_title("Model Comparison - Test Set RMSE")
     ax.invert_yaxis()
     plt.tight_layout()
 
