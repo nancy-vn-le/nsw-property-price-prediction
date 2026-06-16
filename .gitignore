@@ -51,5 +51,8 @@ data/processed/*
 CLAUDE.md
 agent-os/
 
+# Internal scripts — not for public repo
+scripts/regenerate_figures.py
+
 # Reports — figures ARE committed (embedded in README)
 # Nothing to ignore here
